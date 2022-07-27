@@ -29,8 +29,11 @@ class PCCModel(torch.nn.Module):
         # Encoder
         y_list = self.encoder(x)
         y = y_list[0]
+        
         # what is ground tryth list?
         ground_truth_list = y_list[1:] + [x] 
+        
+        # access all batch-wise coordinates and features (decomposed_coordinates)
         nums_list = [[len(C) for C in ground_truth.decomposed_coordinates] \
             for ground_truth in ground_truth_list]
 
