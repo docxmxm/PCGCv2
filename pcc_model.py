@@ -11,6 +11,8 @@ class PCCModel(torch.nn.Module):
         self.encoder = Encoder(channels=[1,16,32,64,32,8])
         self.decoder = Decoder(channels=[8,64,32,16])
         self.entropy_bottleneck = EntropyBottleneck(8)
+        
+# what is this function?
 
     def get_likelihood(self, data, quantize_mode):
         data_F, likelihood = self.entropy_bottleneck(data.F,
